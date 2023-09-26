@@ -1,0 +1,26 @@
+[workspace]
+resolver = "2"
+members = [
+  "camera",
+  "camera_input",
+  "windowed",
+]
+
+[workspace.dependencies]
+wgpu = { version = "0.17", features = ["naga"] }
+wgpu-profiler = { version = "0.14" }
+bytemuck = { version = "1.13", features = ["derive"] }
+glam = { version = "0.24", features = ["bytemuck"] }
+encase = { version = "0.6", features = ["glam"] }
+env_logger = "0.10"
+log = "*"
+wgpu_shader_boilerplate.git = "https://github.com/exrook/wgpu_shader_boilerplate"
+
+camera.path = "camera"
+camera_input.path = "camera_input"
+windowed.path = "windowed"
+
+[patch.crates-io]
+wgpu = { git = "https://github.com/gfx-rs/wgpu", rev = "27f2ce3" }
+naga = { git = "https://github.com/gfx-rs/naga", rev = "df8107b7" }
+naga_oil = { git = "https://github.com/exrook/naga_oil", branch = "update_indexmap" }
